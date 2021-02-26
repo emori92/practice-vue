@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vue Tutorial!</title>
+  <script src="https://unpkg.com/vue"></script>
+  <style>
+    /* body { */
+      /* color: white; */
+      /* background-color: black; */
+    /* } */
+  </style>
+</head>
+<body>
+  <!-- 宣言的レンダリング -->
+  <div id="app">
+    {{ message }}
+  </div>
+
+  <!-- title属性を変更する -->
+  <div id="app-2">
+    <span v-bind:title="message">
+      consoleでapp2.messageに何か代入してみよう！
+    </span>
+  </div>
+
+  <!-- Falseの時に非表示 -->
+  <div id="app-3">
+    <span v-if="seen">app3.seenをfalseにして！</span>
+  </div>
+
+  <!-- for -->
+  <div id="app-4">
+    <ol>
+      <li v-for="todo of todos">
+        {{ todo.text }}
+      </li>
+    </ol>
+  </div>
+
+  <!-- method -->
+  <div id="app-5">
+    <p>{{ message }}</p>
+    <button v-on:click="reverseMessage">Reverse!</button>
+  </div>
+
+  <!-- input binding -->
+  <div id="app-6">
+    <p>{{ message }}</p>
+    <input v-model="message">
+  </div>
+
+  <!-- component -->
+  <div id="app-7">
+    <ul>
+      <sample-list
+        v-for="item of items"
+        v-bind:todo="item"
+        v-bind:key="item.key"
+      ></sample-list>
+    </ul>
+  </div>
+
+  <!-- v-bind, v-onの省略記法 -->
+  <div id="app-11">
+    <!-- method -->
+    <button @click="addList">リストを追加します</button>
+    <ul>
+      <new-num-list
+        v-for="item of newLists"
+        :key="item.id"
+        :new-list="item"
+      ></new-num-list>
+    </ul>
+  </div>
+
+  <!-- 各インスタンスの状態を独立させる -->
+  <div id="app-12">
+    <click-count></click-count>
+    <click-count></click-count>
+    <click-count></click-count>
+    <click-count></click-count>
+    <click-count></click-count>
+  </div>
+
+  <!-- vue -->
+  <script src="components.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>
