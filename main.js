@@ -55,6 +55,7 @@ const app6 = new Vue({
   }
 });
 
+// component
 const app7 = new Vue({
   el: '#app-7',
   data: {

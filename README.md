@@ -1,1 +1,11 @@
-このリポジトリは、[はじめに](https://jp.vuejs.org/v2/guide/)を参考に宣言、コンポーネントの基礎部分の構文を自分用にまとめたものです。
+# はじめに
+このリポジトリは、Vue.jsの基礎的な構文を自分用にまとめたものです。
+参考にしたドキュメントは以下になります。
+
+- [はじめに](https://jp.vuejs.org/v2/guide/)
+- [Vuex 入門](https://vuex.vuejs.org/ja/guide/)
+
+
+### Requirements
+vue: 2.6.12
+vuex: 3.x
