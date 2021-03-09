@@ -1,5 +1,27 @@
+// module
+const sampleModule = {
+  state: () => ({
+    text: 'moduleのテストです'
+  }),
+  getters: {
+    returnText: state => {
+      return  state.text
+    }
+  },
+  mutations: {
+    editText (state, text) {
+      state.text = text
+    }
+  }
+}
+
+
 // store
 const store = new Vuex.Store({
+  // module
+  modules: {
+    sampleModule: sampleModule
+  },
   // state
   state: {
     count: 0,
@@ -13,6 +35,16 @@ const store = new Vuex.Store({
   mutations: {
     add (state) {
       state.count++
+    },
+    // ペイロード: 特定のmutationに与える引数のこと
+    addNum(state, num) {
+      state.count += num
+    }
+  },
+  // action: mutationをcommitする。非同期を行える
+  actions: {
+    add ({ commit }) {
+      commit('add')
     }
   },
   // getter: 複数のコンポーネントで再利用する
