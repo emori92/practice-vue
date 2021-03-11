@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vue router</title>
+  <!-- vue -->
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+  <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+  <!-- style -->
+  <style>
+    /* active */
+    .router-link-active {
+      color: red;
+    }
+
+    /* bottom */
+    .component {
+      /* bottom */
+      margin-bottom: 80px;
+    }
+
+    .d-flex {
+      /* flex */
+      display: flex;
+      flex-direction: column;
+    }
+
+    .d-flex a {
+      margin-right: 40px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- router tutorial -->
+  <div id="app" class="component">
+    <h1>Vue router Tutorial!</h1>
+
+    <!-- router -->
+    <div class="d-flex">
+      <!-- anchor tag -->
+      <router-link to="/foo">fooへ移動</router-link>
+      <router-link to="/bar">barへ移動</router-link>
+      <!-- :id -->
+      <router-link to="/user/foo">user: fooへ移動</router-link>
+      <router-link to="/user/bar">user: barへ移動</router-link>
+      <!-- * -->
+      <router-link to="/user-3">user id</router-link>
+      <!-- nest View -->
+      <router-link to="/parent/John/profile">user profile</router-link>
+      <router-link to="/parent/John/post">user post</router-link>
+      <!-- url name -->
+      <router-link :to="{ name: 'bar' }">url_nameでbarへ移動</router-link>
+      <router-link :to="{ name: 'username', params: { username: 'URL_name_test' } }">url name で移動</router-link>
+      <!-- view name -->
+      <router-link to="/views/Mike">user: Mike</router-link>
+    </div>
+
+    <!-- view -->
+    <router-view></router-view>
+    <router-view name="a"></router-view>
+    <router-view name="b"></router-view>
+  </div>
+
+
+  <!-- nav tutorial -->
+  <div id="nav-app" class="component">
+    <h1>Nav Tutorial</h1>
+    <router-view></router-view>
+  </div>
+
+
+  <!-- vue -->
+  <script src="vue-router.js"></script>
+</body>
+</html>
