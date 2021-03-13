@@ -14,7 +14,7 @@ const app2 = new Vue({
   }
 });
 
-// sennをFalseにして非表示
+// seenをFalseにして非表示
 const app3 = new Vue({
   el: '#app-3',
   data: {
