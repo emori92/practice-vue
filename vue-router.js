@@ -1,4 +1,5 @@
 // components
+const Home = { template: `<div>Hello Vue!</div>` }
 const Foo = { template: `<div>fooコンポネントです。</div>` }
 const Bar = { template: `<div>barコンポネントです。</div>` }
 const User = { template: `<div>user: {{ $route.params.username }}のコンポーネントです。</div>` }
@@ -13,6 +14,12 @@ const ParentObj = {
 }
 const Profile = { template: `<div>profile: {{ $route.params.username }}</div>` }
 const Post = { template:  `<div>post: {{ $route.params.username }}</div>` }
+// $router.paramsは、特定のURLでしか使えない
+// 汎用性を避けるため、propsを使う
+const Buzz = {
+  props: ['text'],
+  template: `<div>{{ text }}</div>`
+}
 
 // nav component
 const navAnchors = {
@@ -64,6 +71,7 @@ const profileSubContent = {
 
 // routes
 const routes = [
+  { path: '', component: Home , redirect: { name: 'email' } },
   { path: '/foo', component: Foo },
   { path: '/bar', component: Bar, name: 'bar' },  // URLに名前を追加
   // URLにid
@@ -87,12 +95,14 @@ const routes = [
       b: Post
     }
   },
+  { path: '/buzz/:text', component: Buzz, props: true },
   // nav
   { path: '/config',
     component: navBase,
     children: [{
       path: 'email',
-      component: emailContent
+      component: emailContent,
+      name: 'email'
     }, {
       path: 'profile',
       components: {
@@ -104,6 +114,7 @@ const routes = [
 ]
 // router
 const router = new VueRouter({
+  mode: 'history',
   routes
 })
 
@@ -112,11 +123,3 @@ const router = new VueRouter({
 new Vue({
   router
 }).$mount('#app')
-
-new Vue({
-  router
-}).$mount('#nav-app')
-
-
-// move '/config' page
-router.push('/config/email')

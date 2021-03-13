@@ -4,8 +4,10 @@
 
 - [はじめに](https://jp.vuejs.org/v2/guide/)
 - [Vuex 入門](https://vuex.vuejs.org/ja/guide/)
+- [Vue Router](https://router.vuejs.org/)
 
 
 ### Requirements
-vue: 2.6.12
-vuex: 3.x
+- vue: 2.6.12
+- vuex: 3.x
+- vue router: 3.x

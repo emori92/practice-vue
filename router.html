@@ -56,19 +56,16 @@
       <router-link :to="{ name: 'username', params: { username: 'URL_name_test' } }">url name で移動</router-link>
       <!-- view name -->
       <router-link to="/views/Mike">user: Mike</router-link>
+      <!-- redirect -->
+      <router-link to="/">Home</router-link>
+      <!-- props -->
+      <router-link to="/buzz/props_test">Propsを利用しcomponentに汎用性を持たせる</router-link>
     </div>
 
     <!-- view -->
     <router-view></router-view>
     <router-view name="a"></router-view>
     <router-view name="b"></router-view>
-  </div>
-
-
-  <!-- nav tutorial -->
-  <div id="nav-app" class="component">
-    <h1>Nav Tutorial</h1>
-    <router-view></router-view>
   </div>
 
 
